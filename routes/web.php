@@ -19,3 +19,24 @@ Route::get('/', [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/search', [
+  'uses' => 'SearchController@getResult',
+  'as' => 'search',
+]);
+
+Route::get('/user/{username}', [
+  'uses' => 'ProfileController@getProfile',
+  'as' => 'profile',
+]);
+Route::get('/edit', [
+  'uses' => 'ProfileController@getEdit',
+  'as' => 'profile.edit',
+  'middleware' => ['auth'],
+]);
+
+Route::post('/profile/edit', [
+  'uses' => 'ProfileController@postEdit',
+  'as' => 'profile.edit',
+  'middleware' => ['auth'],
+]);

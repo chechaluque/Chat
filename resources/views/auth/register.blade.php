@@ -28,7 +28,7 @@
                             <label for="first_name" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" autofocus>
                             </div>
                           </div>
 
@@ -36,7 +36,7 @@
                             <label for="last_name" class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}"  autofocus>
                             </div>
                           </div>
 
@@ -44,7 +44,7 @@
                             <label for="location" class="col-md-4 control-label">Location</label>
 
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') }}" required autofocus>
+                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') }}"  autofocus>
                             </div>
                           </div>
 

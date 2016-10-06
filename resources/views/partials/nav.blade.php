@@ -11,9 +11,23 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('home') }}">
               <i class="fa fa-whatsapp" aria-hidden="true"></i> CHAT
             </a>
+            @if (Auth::check())
+              <div class="nav navbar-nav">
+                <li><a href="#">Timeline</a></li>
+                <li><a href="#">Friends</a></li>
+
+              </div>
+              <form class="navbar-form navbar-left" action="{{ route('search') }}">
+                <div class="form-group">
+                  <input type="text" name="query" class="form-control" placeholder="Find people">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+              </form>
+
+            @endif
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -36,6 +50,8 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                              <a href="{{ route('profile', ['id'=>Auth::user()->username]) }}">My profile</a>
+                              <a href="{{ route('profile.edit') }}">Update profile</a>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

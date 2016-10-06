@@ -15,7 +15,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'first_name', 'last_name', 'location'
+        'username',
+        'email',
+        'password',
+        'first_name',
+        'last_name',
+        'location',
     ];
 
     /**
@@ -24,6 +29,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+    // public function getAvatarUrl()
+    // {
+    //   return "https://www.gravatar.com/avatar/{{ md5($this->email) }}?d=mm&s";
+    // }
 }
