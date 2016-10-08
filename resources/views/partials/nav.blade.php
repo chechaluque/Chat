@@ -17,7 +17,7 @@
             @if (Auth::check())
               <div class="nav navbar-nav">
                 <li><a href="#">Timeline</a></li>
-                <li><a href="#">Friends</a></li>
+                <li><a href="{{ route('firends.index') }}">Friends</a></li>
 
               </div>
               <form class="navbar-form navbar-left" action="{{ route('search') }}">

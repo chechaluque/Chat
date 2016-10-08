@@ -4,8 +4,8 @@
     </div>
 @endif
 @if(Session::has('info'))
-    <div class="alert alert-success" role="alert">
-        <strong>Success:</strong>{{ Session::get('info') }}
+    <div class="alert alert-info" role="info">
+        <strong>{{ Session::get('info') }}</strong>
     </div>
 @endif
 @if(count($errors) > 0 )

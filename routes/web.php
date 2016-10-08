@@ -29,7 +29,7 @@ Route::get('/user/{username}', [
   'uses' => 'ProfileController@getProfile',
   'as' => 'profile',
 ]);
-Route::get('/edit', [
+Route::get('/profile/edit', [
   'uses' => 'ProfileController@getEdit',
   'as' => 'profile.edit',
   'middleware' => ['auth'],
@@ -38,5 +38,31 @@ Route::get('/edit', [
 Route::post('/profile/edit', [
   'uses' => 'ProfileController@postEdit',
   'as' => 'profile.edit',
+  'middleware' => ['auth'],
+]);
+
+Route::get('/friends', [
+  'uses' => 'FriendController@getFriend',
+  'as' => 'firends.index',
+  'middleware' => ['auth'],
+]);
+
+Route::get('/friends/add/{username}', [
+  'uses' => 'FriendController@getAdd',
+  'as' => 'firends.add',
+  'middleware' => ['auth'],
+]);
+
+Route::get('/friends/accept/{username}', [
+  'uses' => 'FriendController@getAccept',
+  'as' => 'firends.accept',
+  'middleware' => ['auth'],
+]);
+/**
+*Statuses
+*/
+Route::post('/status', [
+  'uses' => 'StatusController@postStatus',
+  'as' => 'status.post',
   'middleware' => ['auth'],
 ]);

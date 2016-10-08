@@ -5,7 +5,7 @@
 </head>
 <body>
   @include('partials.nav')
-
+  @include('partials.alerts')
   @yield('content')
 
   <!-- Scripts -->
