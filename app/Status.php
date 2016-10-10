@@ -16,4 +16,12 @@ class Status extends Model
     {
       return $this->belongsTo('Chat\User', 'user_id');
     }
+    public function scopeNotReply($query)
+    {
+      return $query->whereNull('parent_id');
+    }
+    public function replies()
+    {
+      return $this->hasMany('Chat\Status', 'parent_id');
+    }
 }

@@ -16,7 +16,7 @@
             </a>
             @if (Auth::check())
               <div class="nav navbar-nav">
-                <li><a href="#">Timeline</a></li>
+                <li><a href="{{ url('home') }}">Timeline</a></li>
                 <li><a href="{{ route('firends.index') }}">Friends</a></li>
 
               </div>
