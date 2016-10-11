@@ -4,7 +4,7 @@ namespace Chat;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Chat\Status;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -39,6 +39,10 @@ class User extends Authenticatable
     public function statuses()
     {
       return $this->hasMany('Chat\Status', 'user_id');
+    }
+    public function likes()
+    {
+      return $this->hasMany('Chat\Like', 'user_id');
     }
     public function friendsOfMine()
     {
@@ -82,5 +86,9 @@ class User extends Authenticatable
     public function isFriendWith(User $user)
     {
       return (bool) $this->friends()->where('id', $user->id)->count();
+    }
+    public function hasLikedStatus(Status $status)
+    {
+      return (bool) $status->likes->where('user_id', $this->id)->count();
     }
 }
