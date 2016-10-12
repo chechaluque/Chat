@@ -40,7 +40,7 @@
                     <li><a href="{{ route('status.like', ['statusId'=>$reply->id]) }}">Like</a></li>
                   @endif
                   <li>{{ $reply->likes->count() }} {{ str_plural('like', $reply->likes->count()) }}</li>
-              
+
               </ul>
           </div>
       </div>
@@ -78,6 +78,10 @@
         <p>
           You and {{ $user->username }} are friends.
         </p>
+        <form action="{{ route('firends.delete', ['username'=>$user->username]) }}" method="post">
+          <input type="submit" name="name" value="Delete friend" class="btn btn-danger">
+          <input type="hidden" name="_token" value="{{ Session::token() }}">
+        </form>
 
       @elseif (Auth::user()->id !== $user->id)
         <a href="{{ route('firends.add', ['username'=>$user->username]) }}" class="btn btn-primary">Add as friends.</a>

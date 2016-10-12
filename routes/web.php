@@ -52,10 +52,17 @@ Route::get('/friends/add/{username}', [
   'as' => 'firends.add',
   'middleware' => ['auth'],
 ]);
-
+/**
+*friends*/
 Route::get('/friends/accept/{username}', [
   'uses' => 'FriendController@getAccept',
   'as' => 'firends.accept',
+  'middleware' => ['auth'],
+]);
+
+Route::post('/friends/delete/{username}', [
+  'uses' => 'FriendController@postDelete',
+  'as' => 'firends.delete',
   'middleware' => ['auth'],
 ]);
 /**

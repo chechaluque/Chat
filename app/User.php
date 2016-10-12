@@ -77,6 +77,11 @@ class User extends Authenticatable
     {
      $this->friendsOf()->attach($user->id, ['accepted'=>0]);
     }
+    public function deleteFriend(User $user)
+    {
+     $this->friendsOf()->detach($user->id);
+     $this->friendsOfMine()->detach($user->id);
+    }
     public function acceptFriendRequest(User $user)
     {
       $this->friendsRequests()->where('id', $user->id)->first()->pivot->update([
